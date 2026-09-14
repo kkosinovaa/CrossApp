@@ -11,3 +11,7 @@ dotnet run --project src/Cli
 
 ## Середовище
 .NET SDK 10.0, Windows x64
+
+## Додаткове завдання (Розміри publish)
+- win-x64: ~75 МБ
+- linux-x64: ~76 МБ
