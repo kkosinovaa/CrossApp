@@ -6,11 +6,13 @@
 Призначення: оформлення замовлень і підрахунок сум.
 
 ## Запуск
+```bash
 dotnet build
 dotnet run --project src/Cli
+```
 
 ## Середовище
-.NET SDK 10.0, Windows x64
+.NET SDK 10.0, Windows 11 x64
 
 ## Додаткове завдання (Розміри publish)
 - win-x64: ~75 МБ
