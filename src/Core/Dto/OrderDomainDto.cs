@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿
+using System.Text.Json.Serialization;
 
 namespace Core.Dto;
 
@@ -10,6 +11,22 @@ namespace Core.Dto;
 public abstract record OrderDomainDto;
 
 public record CustomerDto(string Id, string Name, string? Phone = null) : OrderDomainDto;
+
 public record ProductDto(string Id, string Name, decimal Price) : OrderDomainDto;
-public record OrderDto(string Id, string CustomerId, string Date) : OrderDomainDto;
-public record OrderLineDto(string OrderId, string ProductId, int Quantity) : OrderDomainDto;
+
+public record OrderDto(
+    string Id,
+    string CustomerId,
+    string Date,
+    bool IsConfirmed = false,
+    List<OrderLineDto>? Lines = null,
+    string? Status = null
+) : OrderDomainDto;
+
+public record OrderLineDto(
+    string OrderId,
+    string ProductId,
+    int Quantity,
+    string? Name = null,
+    decimal? Price = null
+) : OrderDomainDto;

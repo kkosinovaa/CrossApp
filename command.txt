@@ -1,0 +1,23 @@
+pwd
+ls
+ls data
+dotnet build
+
+dotnet run --project src/Cli -- data/sample.csv
+
+cp data/sample.csv data/sample.backup.csv
+
+printf '\nP;P-999;TestProduct;-500\n' >> data/sample.csv
+
+dotnet run --project src/Cli -- data/sample.csv
+
+cp data/sample.backup.csv data/sample.csv
+rm data/sample.backup.csv
+
+dotnet run --project src/Cli -- data/wrong.csv
+echo $?
+
+dotnet run --project src/Cli -- data/sample.json
+
+git status
+git log -1 --oneline
